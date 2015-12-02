@@ -18,7 +18,7 @@ CloudService is a simple API allowing users to define cloud products & services.
                 name: "云主机"
                 description: "虚拟主机"
                 longDescription: null
-                unitSize: null
+                unitSize: 1
                 logo: null
                 startingPriceHourly: 0.16
                 startingPriceMonthly: 30
@@ -37,13 +37,14 @@ object containing a product family and its attributes
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "name": "云硬盘",
+            "isActive": 1
+            description: "云硬盘，可以挂载到云主机上"
+            longDescription: null
+            unitSize: 1
+            logo: null
+            startingPriceHourly: 0.16
+            startingPriceMonthly: 30            
         }
 
 + Response 201 (application/json)

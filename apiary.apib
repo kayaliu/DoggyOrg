@@ -84,3 +84,173 @@ object containing a product family and its attributes
 ## Location Collection [/locations]
 ## Service Provider Collection [/serviceproviders]
 ## Software Description Collection [/swdescriptions]
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Bazaar Order API
+
+Order API for Bazaar project.
+
+## Order family [/orders]
+
+### List All Orders [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "accountId": "10001",  //The account to which an order belongs.
+                "customerId": "100010", //The user id who deals this order
+                "status": "5" ,//
+                "payStatus" : "3",
+                "createDate":"2015-11-12 12:30:01",
+                "modifyDate":"2015-11-12 12:40:11",
+                "payedDate":"2015-11-12 12:41:02",
+                "expirationDate":"",
+                "cancelledDate":"",
+                "totalAmount":"90.00", //
+                "payAmount":"90.00",
+                
+                "orderItems": [
+                    {
+                        "categoryId": "10001",
+                        "displayProductName": "云服务器（包年包月）"，
+                        "orderConfiguration":[
+                            {
+                                "configrationItemName":"云主机类型",
+                                "productId":"1001",
+                                "productName":"s1.xlarge|2cpu|4G",
+                                "priceHourly":"0.1",
+                                "priceMonthly":"3",
+                                "sortId":"1"
+                            },
+                            {
+                                "configrationItemName":"镜像",
+                                "productId":"2001",
+                                "productName":"CentOS 5.5 64bit",
+                                "priceHourly":"0.0",
+                                "priceMonthly":"0.0",
+                                "sortId":"2"
+                            },
+                            {
+                                "configrationItemName":"数据盘",
+                                "productId":"1001",
+                                "productName":"普通IO 50G",
+                                "priceHourly":"0.0",
+                                "priceMonthly":"0.0",
+                                "sortId":"3"
+                            }
+                        ],
+                        "quantity":"1",
+                        "orderPeriod":"12",
+                        "priceHourly":"0.1",
+                        "priceMonthly":"30.00",
+                        "startDate": "2015-11-12 12:42:02",
+                        "endDate":"2016-11-12 12:42:02",
+                        "chargeModel":"FLAT",
+                        "totalAmount":"90.00",
+                        "billingItems":[
+                            {
+                                "billingItemId":"1000001",
+                                "activeFalg":"true",
+                                "billingPackages":[
+                                    {
+                                        "billingPackageId":"1000001", 
+                                        "categoryId":"10001",
+                                        "product_id":"1",
+                                        "description":"包年包月云主机",
+                                        "priceHourly":"0.1",
+                                        "priceMonthly":"30",
+                                        "cycleStartDate":"2015-11-12 12:42:02",
+                                        "hoursUsed":"50",
+                                        "lastBillDate":"2015-11-12 12:42:02",
+                                        "nextBillDate":"2016-11-12 12:42:02",
+                                        "activeFlag":"true",
+                                        "chargeModel":"FLAT",
+                                        "modifyDate": "2015-11-12 12:42:02"
+                                        "uniqueResourceId":"e9f696b3-7ce7-42a8-9eb7-318aeec1acf4"
+                                    },
+                                    {
+                                        "billingPackageId":"1000002"
+                                        "categoryId":"10002",
+                                        "product_id":"2",
+                                        "description":"云硬盘 50G",
+                                        "priceHourly":"0.01",
+                                        "priceMonthly":"3",
+                                        "cycleStartDate":"2015-11-12 12:42:02",
+                                        "hoursUsed":"50",
+                                        "lastBillDate":"2015-11-12 12:42:02",
+                                        "nextBillDate":"2016-11-12 12:42:02",
+                                        "activeFlag":"true",
+                                        "chargeModel":"FLAT",
+                                        "modifyDate": "2015-11-12 12:42:02"
+                                        "uniqueResourceId":"9b04ad7e-6d97-40bf-9d62-57873382eab0"
+                                    }
+                                ],
+                                "serviceRequests":[
+                                    {
+                                        "sourceBillingPackageId":"1000002",
+                                        "targetBillingPackageId":"1000001",
+                                        "serviceAction":"bind"
+                                    }
+                                ]
+                            }
+                        ],
+                        
+                    }
+                ]
+            }
+        ]
+
+## Create Order [/createorder]
+
+### Create order[POST]
+
+Create order instance with input configuration parameters.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /order/create
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+
+## Detail Order info [/orderdetail]
+## Get Order collection by account id [/getOrdersByAccount]
+## Get Biill Item collection by account id [/getBillItemsByAccount]
+
+
+

@@ -22,8 +22,8 @@ CloudService is a simple API allowing users to define cloud products & services.
                 logo: null
                 startingPriceHourly: 0.16
                 startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
                 orderTemplate: null
                 attributes: null
             }
@@ -65,32 +65,25 @@ object containing a product family and its attributes
                 logo: null
                 startingPriceHourly: 0.16
                 startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
                 orderTemplate: null
                 attributes: null
             }
 
 ## Product Catalogue Collection [/productcatalogues]
-### List All Product Catelogues [GET]
+### List All Product Catalogues [GET]
 
 + Response 200 (application/json)
 
         [
             {
                 id: 1
-                isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
-                unitSize: 1
-                logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
+                isPublic: 1
+                name: "公共服务目录"
+                description: "公共服务目录"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
             }
         ]
 ## Product Category Collection [/productcategories]
@@ -103,18 +96,24 @@ object containing a product family and its attributes
             {
                 id: 1
                 isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
-                unitSize: 1
+                name: "主机与网络"
+                description: "主机与网络"
                 logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
+                sort: 1
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+            },
+            {
+                id: 2
+                isActive: 1
+                name: "存储"
+                description: "虚拟主机"
+                logo: null
+                sort: 2
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
             }
+
         ]
 
 ## Product Inventory Collection [/productinventories]

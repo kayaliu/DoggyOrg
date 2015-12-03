@@ -4,6 +4,28 @@ HOST: http://polls.apiblueprint.org/
 # CloudService
 
 CloudService is a simple API allowing users to define cloud products & services.
+Some basic data:
+## Product Catalogue:
+### Public catalogue
+id = 1; name = “公共服务目录”
+
+## Product Family:
+### Public Family #1
+id = 1; name = "云主机"
+### Public Family #2
+id = 2; name = "云硬盘"
+### Public Family #3
+id = 3; name = "公网IP"
+### Public Family #4
+id = 4; name = "对象存储"
+### Public Family #5
+id = 5; name = "CDN"
+
+
+
+
+CPU_2C
+id 
 
 ## Product Family Collection [/productfamilies]
 
@@ -24,6 +46,8 @@ CloudService is a simple API allowing users to define cloud products & services.
                 startingPriceMonthly: 30
                 createDate:"2015-11-12 12:30:01",
                 modifyDate:"2015-11-12 12:40:11",
+                createdBy: 1
+                updatedBy: 1
                 orderTemplate: null
                 attributes: null
             }
@@ -67,6 +91,8 @@ object containing a product family and its attributes
                 startingPriceMonthly: 30
                 createDate:"2015-11-12 12:30:01",
                 modifyDate:"2015-11-12 12:40:11",
+                createdBy: 1,
+                updatedBy: 1,
                 orderTemplate: null
                 attributes: null
             }
@@ -84,6 +110,8 @@ object containing a product family and its attributes
                 description: "公共服务目录"
                 createDate:"2015-11-12 12:30:01",
                 modifyDate:"2015-11-12 12:40:11",
+                createdBy: 1,
+                updatedBy: 1
             }
         ]
 ## Product Category Collection [/productcategories]
@@ -107,7 +135,7 @@ object containing a product family and its attributes
                 id: 2
                 isActive: 1
                 name: "存储"
-                description: "虚拟主机"
+                description: "虚拟存储"
                 logo: null
                 sort: 2
                 createDate:"2015-11-12 12:30:01",
@@ -118,17 +146,17 @@ object containing a product family and its attributes
 
 ## Product Inventory Collection [/productinventories]
 
-### List All Product Catelogues [GET]
+### List All Product Inventories [GET]
 
 + Response 200 (application/json)
 
         [
             {
                 id: 1
-                isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
+                itemId: 10
+                regionId: 1
+                availableInventoryCount: NULL
+                availableInventoryCapacity: 1000
                 unitSize: 1
                 logo: null
                 startingPriceHourly: 0.16

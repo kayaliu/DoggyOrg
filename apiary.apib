@@ -52,9 +52,10 @@ id = 3; name = "OS"; categoryId = 3;
 ### Public Item Category #4
 id = 4; name = "ROOT_DISK"; categoryId = 4;
 ### Public Item Category #5
-id = 5; name = "DISK"; categoryId = 5;
+id = 5; name = "DISK_NORMAL_IO"; categoryId = 5;
+id = 6; name = "DISK_HIGH_IO"; categoryId = 5;
 ### Public Item Category #6
-id = 6; name = "PUBLIC_IP"; categoryId = 6;
+id = 7; name = "PUBLIC_IP"; categoryId = 6;
 
 
 ## Product Item:
@@ -76,7 +77,6 @@ id = 61; name = "PUBLIC_IP_METERED"; groupId = 6;
 ## Product Family Collection [/productfamilies]
 
 ### List All Product Families [GET]
-
 + Response 200 (application/json)
 
         [
@@ -142,6 +142,32 @@ object containing a product family and its attributes
                 orderTemplate: null
                 attributes: null
             }
+
+## Product Family [/productfamilies/{id}]
++ Parameters
+    + id (required, number, `1`) 
+### Get One product family details [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1
+                isActive: 1
+                name: "云主机"
+                description: "虚拟主机"
+                longDescription: null
+                unitSize: 1
+                logo: null
+                startingPriceHourly: 0.16
+                startingPriceMonthly: 30
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+                createdBy: 1
+                updatedBy: 1
+                orderTemplate: null
+                attributes: null
+            }
+        ]
 
 ## Product Catalogue Collection [/productcatalogues]
 ### List All Product Catalogues [GET]
@@ -215,49 +241,150 @@ object containing a product family and its attributes
         ]
 ## Product Item Category Collection [/productitemcategories]
 
-### List All Product Catelogues [GET]
+### List All Product Categories [GET]
+### Public Item Category #1
 
 + Response 200 (application/json)
 
         [
             {
                 id: 1
-                isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
-                unitSize: 1
-                logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
+                categoryCode: "CPU"
+                name: "CPU"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+                categorygroups:[
+                    {
+                        id: 1,
+                        name: "CPU"
+                    }                  
+                ]
+            },
+            {
+                id: 2
+                categoryCode: "MEM"
+                name: "MEMORY"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+                categorygroups:[
+                    {
+                        id: 2,
+                        name: "MEMORY"
+                    }                  
+                ]
+            },            
+            {
+                id: 3
+                categoryCode: "OS"
+                name: "Operation System"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+                categorygroups:[
+                    {
+                        id: 3,
+                        name: "OS"
+                    }                  
+                ]
+            }, 
+            {
+                id: 4
+                categoryCode: "ROOT_DISK"
+                name: "Root Disk"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+                categorygroups:[
+                    {
+                        id: 4,
+                        name: "ROOT_DISK"
+                    }                  
+                ]
+            },
+            {
+                id: 5
+                categoryCode: "DISK"
+                name: "DISK"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+                categorygroups:[
+                    {
+                        id: 5,
+                        name: "DISK_NORMAL_IO"
+                    },
+                    {
+                        id: 6,
+                        name: "DISK_HIGH_IO"
+                    } 
+                ]
+            },
+            {
+                id: 6
+                categoryCode: "PUBLIC_IP"
+                name: "Public IP"
+                quantityLimit: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+                categorygroups:[
+                    {
+                        id: 7,
+                        name: "PUBLIC_IP"
+                    }
+                ]
             }
         ]
 
 ## Product Item Category Group Collection [/productitemcategorygroups]
 
-### List All Product Catelogues [GET]
+### List All Product Category Groups [GET]
 
 + Response 200 (application/json)
 
         [
             {
                 id: 1
-                isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
-                unitSize: 1
-                logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
+                name: "CPU"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 2
+                name: "MEMORY"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 3
+                name: "OS"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 4
+                name: "ROOT_DISK"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 5
+                name: "DISK_NORMAL_IO"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 6
+                name: "DISK_HIGH_IO"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 7
+                name: "PUBLIC_IP"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
             }
         ]
 

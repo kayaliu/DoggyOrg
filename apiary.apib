@@ -523,122 +523,9 @@ object containing a product family and its attributes
         ]
 
 
-## Order family [/orders]
+# Bazaar Order API
 
-### List All Orders [GET]
-+ Request (application/json)
-        
-        {
-            "accountId"="10001";
-            "customerId"="";
-        }
-        
-+ Response 200 (application/json)
-
-        [
-            {
-                "accountId": "10001",  //The account to which an order belongs.
-                "customerId": "100010", //The user id who deals this order
-                "status": "5" ,//
-                "payStatus" : "3",
-                "createDate":"2015-11-12 12:30:01",
-                "modifyDate":"2015-11-12 12:40:11",
-                "payedDate":"2015-11-12 12:41:02",
-                "expirationDate":"",
-                "cancelledDate":"",
-                "totalAmount":"90.00", //
-                "payAmount":"90.00",
-                
-                "orderItems": [
-                    {
-                        "categoryId": "10001",
-                        "displayProductName": "云服务器（包年包月）"，
-                        "orderConfiguration":[
-                            {
-                                "configrationItemName":"云主机类型",
-                                "productId":"1001",
-                                "productName":"s1.xlarge|2cpu|4G",
-                                "priceHourly":"0.1",
-                                "priceMonthly":"3",
-                                "sortId":"1"
-                            },
-                            {
-                                "configrationItemName":"镜像",
-                                "productId":"2001",
-                                "productName":"CentOS 5.5 64bit",
-                                "priceHourly":"0.0",
-                                "priceMonthly":"0.0",
-                                "sortId":"2"
-                            },
-                            {
-                                "configrationItemName":"数据盘",
-                                "productId":"1001",
-                                "productName":"普通IO 50G",
-                                "priceHourly":"0.0",
-                                "priceMonthly":"0.0",
-                                "sortId":"3"
-                            }
-                        ],
-                        "quantity":"1",
-                        "orderPeriod":"12",
-                        "priceHourly":"0.1",
-                        "priceMonthly":"30.00",
-                        "startDate": "2015-11-12 12:42:02",
-                        "endDate":"2016-11-12 12:42:02",
-                        "chargeModel":"FLAT",
-                        "totalAmount":"90.00",
-                        "billingItems":[
-                            {
-                                "billingItemId":"1000001",
-                                "activeFalg":"true",
-                                "billingPackages":[
-                                    {
-                                        "billingPackageId":"1000001", 
-                                        "categoryId":"10001",
-                                        "product_id":"1",
-                                        "description":"包年包月云主机",
-                                        "priceHourly":"0.1",
-                                        "priceMonthly":"30",
-                                        "cycleStartDate":"2015-11-12 12:42:02",
-                                        "hoursUsed":"50",
-                                        "lastBillDate":"2015-11-12 12:42:02",
-                                        "nextBillDate":"2016-11-12 12:42:02",
-                                        "activeFlag":"true",
-                                        "chargeModel":"FLAT",
-                                        "modifyDate": "2015-11-12 12:42:02"
-                                        "uniqueResourceId":"e9f696b3-7ce7-42a8-9eb7-318aeec1acf4"
-                                    },
-                                    {
-                                        "billingPackageId":"1000002"
-                                        "categoryId":"10002",
-                                        "product_id":"2",
-                                        "description":"云硬盘 50G",
-                                        "priceHourly":"0.01",
-                                        "priceMonthly":"3",
-                                        "cycleStartDate":"2015-11-12 12:42:02",
-                                        "hoursUsed":"50",
-                                        "lastBillDate":"2015-11-12 12:42:02",
-                                        "nextBillDate":"2016-11-12 12:42:02",
-                                        "activeFlag":"true",
-                                        "chargeModel":"FLAT",
-                                        "modifyDate": "2015-11-12 12:42:02"
-                                        "uniqueResourceId":"9b04ad7e-6d97-40bf-9d62-57873382eab0"
-                                    }
-                                ],
-                                "serviceRequests":[
-                                    {
-                                        "sourceBillingPackageId":"1000002",
-                                        "targetBillingPackageId":"1000001",
-                                        "serviceAction":"bind"
-                                    }
-                                ]
-                            }
-                        ],
-                        
-                    }
-                ]
-            }
-        ]
+Order API for Bazaar project.
 
 ## Create Order [/placeOrder]
 
@@ -654,26 +541,28 @@ The verifyOrder will use with the same method.
                 {
                     "packageId" : 126,
                     "location" :449494,
+                    "locationObject": {
+                        "id": 449494,
+                        "longName": "北京1区",
+                        "name": "BJ01"
+                    },
                     "quantity" : 1,
                     "hardware": [{
                         "hostname": "TEST",
                         "domain": "test1"
                     }],
-                    "prices": [
-                        {"id": 13739}, //Single Processor Quad Core Xeon 1270 - 3.40GHz (Sandy Bridge) - 1 x 8MB cache w/H
-                        {"id": 13748}, //32 GB DDR3 1333
-                        {"id": 1267},  //1TB sataII
-                        {"id": 342},  //2000 GB Bandwidth
-                        {"id": 21141}, //1 Gbps Dual public uplink
-                        {"id": 58},  //automated notification response
-                        {"id": 876}, //Non-Raid Disk Controller
-                        {"id": 57},  //email and ticket notification
-                        {"id": 55},  //host ping monitoring
-                        {"id": 21},  //single primary ip
-                        {"id": 906},  //remote managements
-                        {"id": 420},  //vpn management
-                        {"id": 418},  //vulnerability
-                        {"id": 37620}  //Ubuntu 14.04 64bit
+                    "orderConfiguration": [
+                        {"productId": 13739}, //Single Processor Quad Core Xeon 1270 - 3.40GHz (Sandy Bridge) - 1 x 8MB cache w/H
+                        {"productId": 13748}, //32 GB DDR3 1333
+                        {"productId": 1267},  //1TB sataII
+                        {"productId": 342},  //2000 GB Bandwidth
+                        {"productId": 21141}, //1 Gbps Dual public uplink
+                        {"productId": 876}, //Non-Raid Disk Controller
+                        {"productId": 21},  //single primary ip
+                        {"productId": 37620}  //Ubuntu 14.04 64bit
+                    ],
+                    "serviceOperation":[
+                        {"serviceOperationId":"10001", [{"param","value"},{"param2","value2"}]} // binding disk
                     ]
                 }
             ]
@@ -688,31 +577,23 @@ The verifyOrder will use with the same method.
     + Body
 
             {
-                "billingOrderItemId": null,
+                "billingOrderItemId": “100001”,
                 "hardware": [
                     {
                         "accountId": null,
                         "domain": "test1",
                         "hardwareStatusId": null,
                         "hostname": "TEST",
-                        "primaryBackendNetworkComponent": {
-                            "networkVlanId": null
-                        },
-                        "primaryNetworkComponent": {
-                            "networkVlanId": null
-                        }
                     }
                 ],
-                "imageTemplateId": null,
                 "location": "449494",
                 "locationObject": {
                     "id": 449494,
                     "longName": "北京1区",
                     "name": "BJ01"
                 },
-                "packageId": 126,
                 "paymentType": "1",  // pay by account's fund
-                "prices": [
+                "orderConfiguration": [
                     {
                         "categories": [
                             {
@@ -914,46 +795,6 @@ The verifyOrder will use with the same method.
                     {
                         "categories": [
                             {
-                                "categoryCode": "notification",
-                                "id": 21,
-                                "name": "Notification"
-                            }
-                        ],
-                        "hourlyRecurringFee": "0",
-                        "id": 57,
-                        "item": {
-                            "bundle": [],
-                            "description": "Email and Ticket",
-                            "id": 51,
-                            "keyName": "NOTIFICATION_EMAIL_AND_TICKET"
-                        },
-                        "itemId": 51,
-                        "oneTimeFee": "0",
-                        "recurringFee": "0",
-                    },
-                    {
-                        "categories": [
-                            {
-                                "categoryCode": "monitoring",
-                                "id": 20,
-                                "name": "Monitoring"
-                            }
-                        ],
-                        "hourlyRecurringFee": "0",
-                        "id": 55,
-                        "item": {
-                            "bundle": [],
-                            "description": "Host Ping",
-                            "id": 49,
-                            "keyName": "MONITORING_HOST_PING"
-                        },
-                        "itemId": 49,
-                        "oneTimeFee": "0",
-                        "recurringFee": "0",
-                    },
-                    {
-                        "categories": [
-                            {
                                 "categoryCode": "pri_ip_addresses",
                                 "id": 13,
                                 "name": "Primary IP Addresses"
@@ -969,66 +810,6 @@ The verifyOrder will use with the same method.
                             "keyName": "1_IP_ADDRESS"
                         },
                         "itemId": 15,
-                        "oneTimeFee": "0",
-                        "recurringFee": "0",
-                    },
-                    {
-                        "categories": [
-                            {
-                                "categoryCode": "remote_management",
-                                "id": 46,
-                                "name": "Remote Management"
-                            }
-                        ],
-                        "hourlyRecurringFee": "0",
-                        "id": 906,
-                        "item": {
-                            "bundle": [],
-                            "description": "Reboot / KVM over IP",
-                            "id": 504,
-                            "keyName": "REBOOT_KVM_OVER_IP"
-                        },
-                        "itemId": 504,
-                        "oneTimeFee": "0",
-                        "recurringFee": "0",
-                    },
-                    {
-                        "categories": [
-                            {
-                                "categoryCode": "vpn_management",
-                                "id": 31,
-                                "name": "VPN Management - Private Network"
-                            }
-                        ],
-                        "hourlyRecurringFee": "0",
-                        "id": 420,
-                        "item": {
-                            "bundle": [],
-                            "description": "Unlimited SSL VPN Users & 1 PPTP VPN User per account",
-                            "id": 309,
-                            "keyName": "UNLIMITED_SSL_VPN_USERS_1_PPTP_VPN_USER_PER_ACCOUNT"
-                        },
-                        "itemId": 309,
-                        "oneTimeFee": "0",
-                        "recurringFee": "0",
-                    },
-                    {
-                        "categories": [
-                            {
-                                "categoryCode": "vulnerability_scanner",
-                                "id": 32,
-                                "name": "Vulnerability Assessments & Management"
-                            }
-                        ],
-                        "hourlyRecurringFee": "0",
-                        "id": 418,
-                        "item": {
-                            "bundle": [],
-                            "description": "Nessus Vulnerability Assessment & Reporting",
-                            "id": 307,
-                            "keyName": "NESSUS_VULNERABILITY_ASSESSMENT_REPORTING"
-                        },
-                        "itemId": 307,
                         "oneTimeFee": "0",
                         "recurringFee": "0",
                     },
@@ -1063,6 +844,150 @@ The verifyOrder will use with the same method.
                 "sourceVirtualGuestId": null,
                 "useHourlyPricing": false
             }
+        
+      
+## Order family [/orders]
+
+### List All Orders [GET]
++ Request (application/json)
+
+        {
+            "accountId"="10001";
+            "customerId":="100010";
+        }
+        
++ Response 200 (application/json)
+
+        [
+            {
+                "orderId":"10001",
+                "accountId": "10001",  //The account to which an order belongs.
+                "customerId": "100010", //The user id who deals this order
+                "status": "5" ,//
+                "payStatus" : "3",
+                "createDate":"2015-11-12 12:30:01",
+                "modifyDate":"2015-11-12 12:40:11",
+                "payedDate":"2015-11-12 12:41:02",
+                "expirationDate":"",
+                "cancelledDate":"",
+                "totalAmount":"90.00", //
+                "payAmount":"90.00",
+                
+                "orderItems": [
+                    {
+                        "categoryId": "10001",
+                        {
+                            "categoryCode": "server",
+                            "id": "10001",
+                            "name": "云主机"
+                        },
+                        "displayProductName": "云服务器（包年包月）"，
+                        "orderConfiguration":[
+                            {
+                                "productItemId":"13739",
+                                "productName":"Single Processor Quad Core Xeon 1270 - 3.40GHz",
+                                "priceHourly":"0.10",
+                                "priceMonthly":"3.00",
+                                "usage":"3.00",
+                                "sortId":"1",
+                            },
+                            {
+                                "productItemId":"13748",
+                                "productName":"32 GB DDR3 1333",
+                                "priceHourly":"0.00",
+                                "priceMonthly":"0.00",
+                                "usage":"0.00",
+                                "sortId":"2"
+                            },
+                            {
+                                "productItemId":"37620",
+                                "productName":"buntu 14.04 64bit",
+                                "priceHourly":"0.00",
+                                "priceMonthly":"0.00",
+                                "usage":"0.00",
+                                "sortId":"3"
+                            },
+                            {
+                                "productId":"1267",
+                                "productName":"1TB sataII",
+                                "priceHourly":"0.0",
+                                "priceMonthly":"0.0",
+                                "sortId":"4"
+                            }
+                            {
+                                "productItemId":"342",
+                                "productName":"2000 GB Bandwidth",
+                                "priceHourly":"0.00",
+                                "priceMonthly":"0.00",
+                                "usage":"0.00",
+                                "sortId":"5"
+                            },
+                            {
+                                "productItemId":"21141",
+                                "productName":"1 Gbps Dual public uplink",
+                                "priceHourly":"0.00",
+                                "priceMonthly":"0.00",
+                                "usage":"0.00",
+                                "sortId":"6",
+                                "hidden":"true"
+                            },
+                        ],
+                        "quantity":"1",
+                        "orderPeriod":"12", // one year
+                        "priceHourly":"0.1",
+                        "priceMonthly":"30.00",
+                        "startDate": "2015-11-12 12:42:02",
+                        "endDate":"2016-11-12 12:42:02",
+                        "chargeModel":"FLAT",
+                        "totalAmount":"90.00",
+                        "billingItems":[
+                            {
+                                "billingItemId":"1000001",
+                                "activeFalg":"true",
+                                "billingPackages":[
+                                    {
+                                        "billingPackageId":"1000001", 
+                                        "subscriptionId":"100001",
+                                        "description":"包年包月云主机",
+                                        "priceHourly":"0.1",
+                                        "priceMonthly":"30",
+                                        "cycleStartDate":"2015-11-12 12:42:02",
+                                        "hoursUsed":"50",
+                                        "lastBillDate":"2015-11-12 12:42:02",
+                                        "nextBillDate":"2016-11-12 12:42:02",
+                                        "activeFlag":"true",
+                                        "chargeModel":"FLAT",
+                                        "modifyDate": "2015-11-12 12:42:02"
+                                        "uniqueResourceId":"e9f696b3-7ce7-42a8-9eb7-318aeec1acf4"
+                                    },
+                                    {
+                                        "billingPackageId":"1000002"
+                                        "subscriptioId":"100002",
+                                        "description":"1TB sataII硬盘",
+                                        "priceHourly":"0.01",
+                                        "priceMonthly":"3",
+                                        "cycleStartDate":"2015-11-12 12:42:02",
+                                        "hoursUsed":"50",
+                                        "lastBillDate":"2015-11-12 12:42:02",
+                                        "nextBillDate":"2016-11-12 12:42:02",
+                                        "activeFlag":"true",
+                                        "chargeModel":"FLAT",
+                                        "modifyDate": "2015-11-12 12:42:02"
+                                        "uniqueResourceId":"9b04ad7e-6d97-40bf-9d62-57873382eab0"
+                                    }
+                                ]
+                            }
+                        ],
+                        
+                    }
+                ]
+            }
+        ]
+
+  
+## Detail Order info [/orderdetail]
+## Get Order collection by account id [/getOrdersByAccount]
+## Get Biill Item collection by account id [/getBillItemsByAccount]
 ## Detail Order info [/orderdetail]
 ## Get Order collection by account id [/getOrdersByAccount]
 ## Get Biill Item collection by account id [/getBillItemsByAccount]

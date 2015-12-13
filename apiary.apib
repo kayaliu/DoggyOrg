@@ -1233,5 +1233,36 @@ The verifyOrder will use with the same method.
 ## Get Order collection by account id [/getOrdersByAccount]
 ## Get Biill Item collection by account id [/getBillItemsByAccount]
 
+# Subscription
 
+Subscription manages the instance of a device.
+
+## Subscription Collection [/subscription/v1/subscriptions/]
+
+### List All Subscription [GET]
+
++ Response 200 (application/json)
+
+        {
+            
+            "subscriptions": [
+                {
+                    "id": "1",
+                    "owner": 101,
+                    "createDate": "2015-10-10",
+                    "modifiedDate": "2015-10-10",
+                    "deleted": false,
+                    "hasAcceptedSerivceAgreement": true,
+                    "effectiveDate": "2015-10-10"
+                }, {
+                    "id": "2",
+                    "owner": 101,
+                    "createDate": "2015-10-10",
+                    "modifiedDate": "2015-10-10",
+                    "deleted": false,
+                    "hasAcceptedSerivceAgreement": true,
+                    "effectiveDate": "2015-10-10"
+                }
+            ]
+        }
 

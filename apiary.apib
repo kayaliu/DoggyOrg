@@ -188,7 +188,7 @@ object containing a product family and its attributes
         ]
 ## Product Category Collection [/productcategories]
 
-### List All Product Catelogues [GET]
+### List All Product Categories [GET]
 
 + Response 200 (application/json)
 
@@ -215,6 +215,8 @@ object containing a product family and its attributes
             }
 
         ]
+        
+
 
 ## Product Inventory Collection [/productinventories]
 
@@ -412,7 +414,7 @@ object containing a product family and its attributes
             }
         ]
 
-## Region Collection [/regions]
+## Region Collection [/serviceofferings/v1/regions]
 
 ### List All Regions [GET]
 
@@ -521,14 +523,161 @@ object containing a product family and its attributes
                 modifyDate:"2015-11-12 12:40:11"
             }
         ]
-## Product Item Collection [/productItem]
 
-### Query All Product Item By Region [GET]
+## Product Families Collection [/serviceofferings/v1/productfamilies]  
+
+### List Product Categories By Account [GET]
 
 + Response 200 (application/json)
 
         [
             {
+                "product_category_id": "1",
+                "product_category_name": "主机与网络",
+                "product_category_logo": "",
+                "product_category_description": "",
+                "product_family_collection": [
+                    {
+                        "prodcut_family_id": "1",
+                        "product_family_name": "云主机",
+                        "product_family_description": "",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/vmAndNetwork/vm.php"
+                    },
+                    {
+                        "prodcut_family_id": "2",
+                        "product_family_name": "负载均衡",
+                        "product_family_description": "",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/common.php?pageName=load"
+                    }
+                ]
+            },
+            {
+                "product_category_id": "2",
+                "product_category_name": "云存储",
+                "product_category_logo": "",
+                "product_category_description": "",
+                "product_family_collection": [
+                    {
+                        "prodcut_family_id": "1",
+                        "product_family_name": "云硬盘",
+                        "product_family_description": "",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/disc.php"
+                    },
+                    {
+                        "prodcut_family_id": "2",
+                        "product_family_name": "对象存储",
+                        "product_family_description": "",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/objectStorage.php"
+                    }
+                ]
+            }
+        ]
+        
+## Product Families Collection [/serviceofferings/v1/productfamilies/<id>]  
+
+### Query Detil Product Family Info [GET]
+
++ Response 200 (application/json)
+
+        {
+            "product_family_id": "1",
+            "product_family_name": "云主机",
+            "product_family_description": "高效部署处理能力可弹性伸缩的计算服务，根据负载要求快速构建稳定、安全、按需订购、按用付费的服务器环境。",
+            "product_family_logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/top.png",
+            "start_price_monthly": "0.35",
+            "start_price_hourly": "0.35",
+            "long_description": [
+                {
+                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image1.png",
+                    "title": "弹性伸缩",
+                    "description": "用户按需自定义CPU、内存、存储空间和虚拟网络的配置，高效部署包括工作组、部门、及企业级别的云主机环境。"
+                },
+                {
+                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image2.png",
+                    "title": "高效部署",
+                    "description": "用户使用配置方案向导快速构建主机环境，使用管理控制台快速上手资源管理，随时按需变更资源配置。"
+                }
+            ]
+        }
+        
+## Bill Type Collection [/serviceofferings/v1/billtypes]  
+
+### Query Product Bill Type Info [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "bill_type_id": "1",
+                "bill_type_name": "按量计费",
+                "description": ""
+            },
+            {
+                "bill_type_id": "2",
+                "bill_type_name": "包年包月",
+                "description": ""
+            }
+        ]
+
+## Availabily Zone Collection [/serviceofferings/v1/availabilyzones]  
+
+### Query Product Availabily Zone Info [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "北京1区",
+                "description": "",
+                "serviceProviderId": 1,
+                "locationId": 1,
+                "createDate": "2015-11-12 12:30:01",
+                "modifyDate": "2015-11-12 12:40:11",
+                "availablityZones": [
+                    {
+                        "availabiltyZoneId": "10",
+                        "availablityZoneName": "可用区1"
+                    },
+                    {
+                        "availabiltyZoneId": "11",
+                        "availablityZoneName": "可用区2"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "北京2区",
+                "description": "",
+                "serviceProviderId": 1,
+                "locationId": 1,
+                "createDate": "2015-11-12 12:30:01",
+                "modifyDate": "2015-11-12 12:40:11",
+                "availablityZones": [
+                    {
+                        "availabiltyZoneId": "20",
+                        "availablityZoneName": "可用区1"
+                    },
+                    {
+                        "availabiltyZoneId": "21",
+                        "availablityZoneName": "可用区2"
+                    }
+                ]
+            }
+        ]
+
+## Product Item Collection [/serviceofferings/v1/productItems]
+
+### Query All Product Item By Region [GET]
+
++ Response 200 (application/json)
+
+        {
+            "cpu": {
                 "category_id": "101",
                 "category_name": "CPU",
                 "category_group": [
@@ -546,7 +695,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1010010002",
@@ -558,7 +708,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1010010003",
@@ -570,7 +721,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1010010004",
@@ -582,14 +734,15 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             }
                         ]
                     }
                 ],
                 "quantity": "1"
             },
-            {
+            "memory": {
                 "category_id": "102",
                 "category_name": "Memory",
                 "category_group": [
@@ -607,7 +760,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1020010002",
@@ -619,7 +773,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1020010003",
@@ -631,7 +786,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1020010004",
@@ -643,14 +799,15 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             }
                         ]
                     }
                 ],
                 "quantity": "1"
             },
-            {
+            "disk": {
                 "category_id": "103",
                 "category_name": "Disk",
                 "category_group": [
@@ -668,7 +825,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030010002",
@@ -680,7 +838,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030010003",
@@ -692,7 +851,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030010004",
@@ -704,7 +864,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             }
                         ]
                     },
@@ -722,7 +883,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030020002",
@@ -734,7 +896,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030020003",
@@ -746,7 +909,8 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             },
                             {
                                 "product_item_id": "1030020004",
@@ -758,14 +922,180 @@ object containing a product family and its attributes
                                     "monthly_recurring_fee": 1.2,
                                     "recurring_fee_tax": "0.99",
                                     "usageRate": "0.5"
-                                }
+                                },
+                                "attribute": {}
                             }
                         ]
                     }
                 ],
                 "quantity": "4"
-            }
-        ]
+            },
+            "os": {
+                "category_id": "104",
+                "category_name": "操作系统",
+                "category_group": [
+                    {
+                        "category_group_id": "104001",
+                        "category_group_name": "windows",
+                        "priduct_item": [
+                            {
+                                "product_item_id": "1040010001",
+                                "product_item_name": "windows server 64位",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {
+                                    "os_type": "window",
+                                    "admin_user": "root",
+                                    "root_disk_size": "20G",
+                                    "login_type": [
+                                        {
+                                            "type_id": "1",
+                                            "type_name": "密码"
+                                        },
+                                        {
+                                            "type_id": "2",
+                                            "type_name": "证书"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "product_item_id": "1010010002",
+                                "product_item_name": "windows server 32位",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {
+                                    "os_type": "window",
+                                    "admin_user": "root",
+                                    "root_disk_size": "20G",
+                                    "login_type": [
+                                        {
+                                            "type_id": "1",
+                                            "type_name": "密码"
+                                        },
+                                        {
+                                            "type_id": "2",
+                                            "type_name": "证书"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "category_group_id": "104002",
+                        "category_group_name": "linux",
+                        "priduct_item": [
+                            {
+                                "product_item_id": "1040020001",
+                                "product_item_name": "CentOs server 64位",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {
+                                    "os_type": "window",
+                                    "admin_user": "root",
+                                    "root_disk_size": "20G",
+                                    "login_type": [
+                                        {
+                                            "type_id": "1",
+                                            "type_name": "密码"
+                                        },
+                                        {
+                                            "type_id": "2",
+                                            "type_name": "证书"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "product_item_id": "1040020002",
+                                "product_item_name": "RedHat server 64位",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {
+                                    "os_type": "window",
+                                    "admin_user": "root",
+                                    "root_disk_size": "20G",
+                                    "login_type": [
+                                        {
+                                            "type_id": "1",
+                                            "type_name": "密码"
+                                        },
+                                        {
+                                            "type_id": "2",
+                                            "type_name": "证书"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "quantity": "1"
+            },
+            "productitemrel": [
+                [
+                    "101001",
+                    "102001"
+                ],
+                [
+                    "101001",
+                    "102002"
+                ],
+                [
+                    "101001",
+                    "102003"
+                ],
+                [
+                    "101002",
+                    "102001"
+                ],
+                [
+                    "101002",
+                    "102002"
+                ],
+                [
+                    "101002",
+                    "102003"
+                ],
+                [
+                    "101003",
+                    "102001"
+                ],
+                [
+                    "101003",
+                    "102002"
+                ],
+                [
+                    "101003",
+                    "102003"
+                ]
+            ]
+        }
 
 # Bazaar Order API
 

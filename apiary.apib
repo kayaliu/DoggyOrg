@@ -29,50 +29,67 @@ id = 5; name = "CDN"; categoryId = 2
 
 ## Product Item Category:
 ### Public Item Category #1
-id = 1; name = "CPU"
+id = 101; name = "cpu"
 ### Public Item Category #2
-id = 2; name = "MEMORY"
+id = 102; name = "memory"
 ### Public Item Category #3
-id = 3; name = "OS"
+id = 103; name = "disk"
 ### Public Item Category #4
-id = 4; name = "ROOT_DISK"
+id = 104; name = "os"
 ### Public Item Category #5
-id = 5; name = "DISK"
+id = 105; name = "root_disk"
 ### Public Item Category #6
-id = 6; name = "PUBLIC_IP"
+id = 106; name = "public_ip"
 
 
 ## Product Item Category Group
 ### Public Item Category #1
-id = 1; name = "CPU"; categoryId = 1;
+id = 101001; name = "cpu"; categoryId = 101;
 ### Public Item Category #2
-id = 2; name = "MEMORY"; categoryId = 2;
+id = 102001; name = "memory"; categoryId = 102;
 ### Public Item Category #3
-id = 3; name = "OS"; categoryId = 3;
+id = 103001; name = "disk_normal_io"; categoryId = 103;
+id = 103002; name = "disk_high_io"; categoryId = 103;
 ### Public Item Category #4
-id = 4; name = "ROOT_DISK"; categoryId = 4;
+id = 104001; name = "windos"; categoryId = 104;
+id = 104002; name = "linux"; categoryId = 104;
 ### Public Item Category #5
-id = 5; name = "DISK_NORMAL_IO"; categoryId = 5;
-id = 6; name = "DISK_HIGH_IO"; categoryId = 5;
+id = 105001; name = "root_disk"; categoryId = 105;
 ### Public Item Category #6
-id = 7; name = "PUBLIC_IP"; categoryId = 6;
+id = 106001; name = "public_ip"; categoryId = 106;
 
 
 ## Product Item:
 ### Public Item #10
-id = 10; keyName = "CPU_2C"; groupId = 1;
+id = 1010010001; keyName = "CPU_1C"; groupId = 101001;
+id = 1010010002; keyName = "CPU_2C"; groupId = 101001;
+id = 1010010003; keyName = "CPU_4C"; groupId = 101001;
+id = 1010010004; keyName = "CPU_8C"; groupId = 101001;
 ### Public Item #20
-id = 20; keyName = "MEM_4G"; groupId = 2;
+id = 1020010001; keyName = "MEM_1G"; groupId = 102001;
+id = 1020010002; keyName = "MEM_2G"; groupId = 102001;
+id = 1020010003; keyName = "MEM_4G"; groupId = 102001;
+id = 1020010004; keyName = "MEM_8G"; groupId = 102001;
 ### Public Item #30
-id = 30; name = "CENTOS_5.6_64bit"; groupId = 3;
+id = 1030010001; name = "DISK_NORMAL_IO_100G"; groupId = 103001;
+id = 1030010002; name = "DISK_NORMAL_IO_200G"; groupId = 103001;
+id = 1030010003; name = "DISK_NORMAL_IO_300G"; groupId = 103001;
+id = 1030010004; name = "DISK_NORMAL_IO_400G"; groupId = 103001;
+id = 1030020001; name = "DISK_HIGH_IO_100G"; groupId = 103002;
+id = 1030020002; name = "DISK_HIGH_IO_200G"; groupId = 103002;
+id = 1030020003; name = "DISK_HIGH_IO_300G"; groupId = 103002;
+id = 1030020004; name = "DISK_HIGH_IO_400G"; groupId = 103002;
 ### Public Item #40
-id = 40; name = "ROOT_DISK_WIN_40G"; groupId = 4;
-id = 41; name = "ROOT_DISK_LINUX_20G"; groupId = 4;
+id = 1040010001; name = "windows_server_64bit"; groupId = 104001;
+id = 1040010002; name = "windows_server_32bit"; groupId = 104001;
+id = 1040020001; name = "CENTOS_5.6_64bit"; groupId = 104002;
+id = 1040020002; name = "CENTOS_7.1_64bit"; groupId = 104002;
 ### Public Item #50
-id = 50; name = "DISK_100G"; groupId = 5;
+id = 1050010001; name = "ROOT_DISK_WIN_40G"; groupId = 105001;
+id = 1050010002; name = "ROOT_DISK_LINUX_20G"; groupId = 105001;
 ### Public Item #60
-id = 60; name = "PUBLIC_IP_FIXED"; groupId = 6;
-id = 61; name = "PUBLIC_IP_METERED"; groupId = 6;
+id = 1060010001; name = "PUBLIC_IP_FIXED"; groupId = 106001;
+id = 1060010002; name = "PUBLIC_IP_METERED"; groupId = 106001;
 
 ## Product Family Collection [/productfamilies]
 

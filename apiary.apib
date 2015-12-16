@@ -91,7 +91,87 @@ id = 1050010002; name = "ROOT_DISK_LINUX_20G"; groupId = 105001;
 id = 1060010001; name = "PUBLIC_IP_FIXED"; groupId = 106001;
 id = 1060010002; name = "PUBLIC_IP_METERED"; groupId = 106001;
 
-## Product Family Collection [/productfamilies]
+## Product Catalogue Collection [/servicecatalogue/v1/productcatalogues]
+### List All Product Catalogues [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1
+                isPublic: 1
+                name: "公共服务目录"
+                description: "公共服务目录"
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+                createdBy: 1,
+                updatedBy: 1
+            }
+        ]
+
+## Product Families Collection [/serviceofferings/v1/productcategories]  
+
+### List Product Categories By Account [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "product_category_id": "1",
+                "isActive": 1,
+                "product_category_name": "serviceofferings.productcategory_1_name",
+                "product_category_logo": "",
+                "sort": "1",
+                "product_category_description": "serviceofferings.productcategory_1_description",
+                "createDate":"2015-11-12 12:30:01",
+                "modifyDate":"2015-11-12 12:40:11",
+                "product_family_collection": [
+                    {
+                        "prodcut_family_id": "1",
+                        "product_family_name": "serviceofferings.productfamily_1_name",
+                        "product_family_description": "serviceofferings.productfamily_1_description",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/vmAndNetwork/vm.php"
+                    },
+                    {
+                        "prodcut_family_id": "3",
+                        "product_family_name": "serviceofferings.productfamily_3_name",
+                        "product_family_description": "serviceofferings.productfamily_3_description",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/common.php?pageName=load"
+                    }
+                ]
+            },
+            {
+                "product_category_id": "2",
+                "isActive": 1,
+                "product_category_name": "serviceofferings.productcategory_2_name",
+                "product_category_logo": "serviceofferings.productcategory_2_description",
+                "sort": "2",
+                "product_category_description": "",
+                "createDate":"2015-11-12 12:40:11",
+                "modifyDate":"2015-11-12 12:40:11",
+                "product_family_collection": [
+                    {
+                        "prodcut_family_id": "2",
+                        "product_family_name": "serviceofferings.productfamily_2_name",
+                        "product_family_description": "serviceofferings.productfamily_2_description",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/disc.php"
+                    },
+                    {
+                        "prodcut_family_id": "4",
+                        "product_family_name": "serviceofferings.productfamily_4_name",
+                        "product_family_description": "serviceofferings.productfamily_4_description",
+                        "product_family_logo": "",
+                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/objectStorage.php"
+                    }
+                ]
+            }
+        ]
+   
+
+## Product Family Collection [/serviceofferings/v1/productfamilies]
 
 ### List All Product Families [GET]
 + Response 200 (application/json)
@@ -100,9 +180,9 @@ id = 1060010002; name = "PUBLIC_IP_METERED"; groupId = 106001;
             {
                 id: 1
                 isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
+                name: "serviceofferings.productfamily_1_name"
+                description: "serviceofferings.productfamily_1_description"
+                longDescription: "serviceofferings.productfamily_1_longDescription"
                 unitSize: 1
                 logo: null
                 startingPriceHourly: 0.16
@@ -160,7 +240,7 @@ object containing a product family and its attributes
                 attributes: null
             }
 
-## Product Family [/productfamilies/{id}]
+## Product Family [/serviceofferings/v1/productfamilies/{id}]
 + Parameters
     + id (required, number, `1`) 
 ### Get One product family details [GET]
@@ -170,9 +250,9 @@ object containing a product family and its attributes
             {
                 id: 1
                 isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
+                name: "serviceofferings.productfamily_1_name"
+                description: "serviceofferings.productfamily_1_description"
+                longDescription: "serviceofferings.productfamily_1_longDescription"
                 unitSize: 1
                 logo: null
                 startingPriceHourly: 0.16
@@ -186,79 +266,7 @@ object containing a product family and its attributes
             }
         ]
 
-## Product Catalogue Collection [/productcatalogues]
-### List All Product Catalogues [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                isPublic: 1
-                name: "公共服务目录"
-                description: "公共服务目录"
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11",
-                createdBy: 1,
-                updatedBy: 1
-            }
-        ]
-## Product Category Collection [/productcategories]
-
-### List All Product Categories [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                isActive: 1
-                name: "主机与网络"
-                description: "主机与网络"
-                logo: null
-                sort: 1
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11",
-            },
-            {
-                id: 2
-                isActive: 1
-                name: "存储"
-                description: "虚拟存储"
-                logo: null
-                sort: 2
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11",
-            }
-
-        ]
-        
-
-
-## Product Inventory Collection [/productinventories]
-
-### List All Product Inventories [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                itemId: 10
-                regionId: 1
-                availableInventoryCount: NULL
-                availableInventoryCapacity: 1000
-                unitSize: 1
-                logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
-            }
-        ]
-## Product Item Category Collection [/productitemcategories]
+## Product Item Category Collection [/serviceofferins/v1/productitemcategories]
 
 ### List All Product Categories [GET]
 ### Public Item Category #1
@@ -355,7 +363,6 @@ object containing a product family and its attributes
                 ]
             }
         ]
-
 ## Product Item Category Group Collection [/productitemcategorygroups]
 
 ### List All Product Category Groups [GET]
@@ -404,286 +411,6 @@ object containing a product family and its attributes
                 name: "PUBLIC_IP"
                 createDate:"2015-11-12 12:30:01",
                 modifyDate:"2015-11-12 12:40:11"
-            }
-        ]
-
-## Product Item Price Collection [/productitemprices]
-
-### List All Product Item Prices [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                isActive: 1
-                name: "云主机"
-                description: "虚拟主机"
-                longDescription: null
-                unitSize: 1
-                logo: null
-                startingPriceHourly: 0.16
-                startingPriceMonthly: 30
-                createdDate: null
-                modifiedDate: null
-                orderTemplate: null
-                attributes: null
-            }
-        ]
-
-## Region Collection [/serviceofferings/v1/regions]
-
-### List All Regions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1,
-                name: "北京1区",
-                description: "",
-                serviceProviderId: 1,
-                locationId: 1,
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11"
-            },
-            {
-                id: 2,
-                name: "北京2区",
-                description: "",
-                serviceProviderId: 1,
-                locationId: 1,
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11"
-            }
-        ]
-
-## Location Collection [/locations]
-
-### List All Locations [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1,
-                name: "北京",
-                description: "",
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11",
-                regions:
-                [
-                    {
-                    id: 1,
-                    name: "北京1区",
-                    description: "",
-                    serviceProviderId: 1,
-                    },
-                    {
-                    id: 2,
-                    name: "北京2区",
-                    description: "",
-                    serviceProviderId: 1,
-                    }                    
-                ]
-            }
-        ]
-
-## Service Provider Collection [/serviceproviders]
-
-### List All Service Providers [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                name: "惠普云平台"
-                description: ""
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11",
-                regions:
-                [
-                    {
-                        id: 1,
-                        name: "北京1区",
-                        description: ""
-                    },
-                    {
-                        id: 2,
-                        name: "北京2区",
-                        description: ""
-                    }                    
-                ]
-            }
-        ]
-
-## Software Description Collection [/swdescriptions]
-
-### List All Software Descriptioins [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                id: 1
-                licenseTerm: 1
-                name: ""
-                description: ""
-                longDescription: null
-                manufacture: ""
-                OS: ""
-                version: 5.2
-                virtualLicense: null
-                virtualizationPlatform: null
-                createDate:"2015-11-12 12:30:01",
-                modifyDate:"2015-11-12 12:40:11"
-            }
-        ]
-
-## Product Families Collection [/serviceofferings/v1/productfamilies]  
-
-### List Product Categories By Account [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "product_category_id": "1",
-                "product_category_name": "主机与网络",
-                "product_category_logo": "",
-                "product_category_description": "",
-                "product_family_collection": [
-                    {
-                        "prodcut_family_id": "1",
-                        "product_family_name": "云主机",
-                        "product_family_description": "",
-                        "product_family_logo": "",
-                        "order_url": "/bazaar-ui/page/marketPlace/product/vmAndNetwork/vm.php"
-                    },
-                    {
-                        "prodcut_family_id": "2",
-                        "product_family_name": "负载均衡",
-                        "product_family_description": "",
-                        "product_family_logo": "",
-                        "order_url": "/bazaar-ui/page/marketPlace/product/common.php?pageName=load"
-                    }
-                ]
-            },
-            {
-                "product_category_id": "2",
-                "product_category_name": "云存储",
-                "product_category_logo": "",
-                "product_category_description": "",
-                "product_family_collection": [
-                    {
-                        "prodcut_family_id": "1",
-                        "product_family_name": "云硬盘",
-                        "product_family_description": "",
-                        "product_family_logo": "",
-                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/disc.php"
-                    },
-                    {
-                        "prodcut_family_id": "2",
-                        "product_family_name": "对象存储",
-                        "product_family_description": "",
-                        "product_family_logo": "",
-                        "order_url": "/bazaar-ui/page/marketPlace/product/storage/objectStorage.php"
-                    }
-                ]
-            }
-        ]
-        
-## Product Families Collection [/serviceofferings/v1/productfamilies/<id>]  
-
-### Query Detil Product Family Info [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "product_family_id": "1",
-            "product_family_name": "云主机",
-            "product_family_description": "高效部署处理能力可弹性伸缩的计算服务，根据负载要求快速构建稳定、安全、按需订购、按用付费的服务器环境。",
-            "product_family_logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/top.png",
-            "start_price_monthly": "0.35",
-            "start_price_hourly": "0.35",
-            "long_description": [
-                {
-                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image1.png",
-                    "title": "弹性伸缩",
-                    "description": "用户按需自定义CPU、内存、存储空间和虚拟网络的配置，高效部署包括工作组、部门、及企业级别的云主机环境。"
-                },
-                {
-                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image2.png",
-                    "title": "高效部署",
-                    "description": "用户使用配置方案向导快速构建主机环境，使用管理控制台快速上手资源管理，随时按需变更资源配置。"
-                }
-            ]
-        }
-        
-## Bill Type Collection [/serviceofferings/v1/billtypes]  
-
-### Query Product Bill Type Info [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "bill_type_id": "1",
-                "bill_type_name": "按量计费",
-                "description": ""
-            },
-            {
-                "bill_type_id": "2",
-                "bill_type_name": "包年包月",
-                "description": ""
-            }
-        ]
-
-## Availabily Zone Collection [/serviceofferings/v1/availabilyzones]  
-
-### Query Product Availabily Zone Info [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": 1,
-                "name": "北京1区",
-                "description": "",
-                "serviceProviderId": 1,
-                "locationId": 1,
-                "createDate": "2015-11-12 12:30:01",
-                "modifyDate": "2015-11-12 12:40:11",
-                "availablityZones": [
-                    {
-                        "availabiltyZoneId": "10",
-                        "availablityZoneName": "可用区1"
-                    },
-                    {
-                        "availabiltyZoneId": "11",
-                        "availablityZoneName": "可用区2"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "北京2区",
-                "description": "",
-                "serviceProviderId": 1,
-                "locationId": 1,
-                "createDate": "2015-11-12 12:30:01",
-                "modifyDate": "2015-11-12 12:40:11",
-                "availablityZones": [
-                    {
-                        "availabiltyZoneId": "20",
-                        "availablityZoneName": "可用区1"
-                    },
-                    {
-                        "availabiltyZoneId": "21",
-                        "availablityZoneName": "可用区2"
-                    }
-                ]
             }
         ]
 
@@ -834,7 +561,7 @@ object containing a product family and its attributes
                         "priduct_item": [
                             {
                                 "product_item_id": "1030010001",
-                                "product_item_name": "10G",
+                                "product_item_name": "100G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -847,7 +574,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030010002",
-                                "product_item_name": "20G",
+                                "product_item_name": "200G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -860,7 +587,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030010003",
-                                "product_item_name": "30G",
+                                "product_item_name": "300G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -873,7 +600,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030010004",
-                                "product_item_name": "40G",
+                                "product_item_name": "400G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -892,7 +619,7 @@ object containing a product family and its attributes
                         "priduct_item": [
                             {
                                 "product_item_id": "1030020001",
-                                "product_item_name": "10G",
+                                "product_item_name": "100G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -905,7 +632,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030020002",
-                                "product_item_name": "20G",
+                                "product_item_name": "200G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -918,7 +645,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030020003",
-                                "product_item_name": "30G",
+                                "product_item_name": "300G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -931,7 +658,7 @@ object containing a product family and its attributes
                             },
                             {
                                 "product_item_id": "1030020004",
-                                "product_item_name": "40G",
+                                "product_item_name": "400G",
                                 "product_item_price": {
                                     "hourly_recurring_fee": "100",
                                     "labor_fee": "50",
@@ -1074,6 +801,84 @@ object containing a product family and its attributes
                 ],
                 "quantity": "1"
             },
+            "root_disk": {
+                "category_id": "105",
+                "category_name": "root_disk",
+                "category_group": [
+                    {
+                        "category_group_id": "105001",
+                        "category_group_name": "windows",
+                        "priduct_item": [
+                            {
+                                "product_item_id": "1050010001",
+                                "product_item_name": "20G",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {}
+                            },
+                            {
+                                "product_item_id": "1050010002",
+                                "product_item_name": "40G",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {}
+                            }
+                        ]
+                    }
+                ],
+                "quantity": "1"
+            },
+            "public_ip": {
+                "category_id": "106",
+                "category_name": "public_ip",
+                "category_group": [
+                    {
+                        "category_group_id": "106001",
+                        "category_group_name": "public_ip",
+                        "priduct_item": [
+                            {
+                                "product_item_id": "1060010001",
+                                "product_item_name": "public_ip_fixed",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {}
+                            },
+                            {
+                                "product_item_id": "1060010002",
+                                "product_item_name": "public_ip_metered",
+                                "product_item_price": {
+                                    "hourly_recurring_fee": "100",
+                                    "labor_fee": "50",
+                                    "one_time_fee": 0.34,
+                                    "monthly_recurring_fee": 1.2,
+                                    "recurring_fee_tax": "0.99",
+                                    "usageRate": "0.5"
+                                },
+                                "attribute": {}
+                            }
+                        ]
+                    }
+                ],
+                "quantity": "1"
+            },
             "productitemrel": [
                 [
                     "101001",
@@ -1113,6 +918,244 @@ object containing a product family and its attributes
                 ]
             ]
         }
+
+
+## Product Inventory Collection [/serviceofferings/v1/productinventories]
+
+### List All Product Inventories [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+
+            }
+        ]
+
+
+## Product Item Price Collection [/serviceofferings/v1/productitemprices]
+
+### List All Product Item Prices [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "itemId": 10,
+                "hourly_recurring_fee": "100",
+                "labor_fee": "50",
+                "one_time_fee": 0.34,
+                "monthly_recurring_fee": 1.2,
+                "recurring_fee_tax": "0.99",
+                "usageRate": "0.5"
+            }
+        ]
+
+## Region Collection [/serviceofferings/v1/regions]
+
+### List All Regions [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1,
+                name: "北京1区",
+                description: "",
+                serviceProviderId: 1,
+                locationId: 1,
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            },
+            {
+                id: 2,
+                name: "北京2区",
+                description: "",
+                serviceProviderId: 1,
+                locationId: 1,
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            }
+        ]
+
+## Location Collection [/locations]
+
+### List All Locations [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1,
+                name: "北京",
+                description: "",
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+                regions:
+                [
+                    {
+                    id: 1,
+                    name: "北京1区",
+                    description: "",
+                    serviceProviderId: 1,
+                    },
+                    {
+                    id: 2,
+                    name: "北京2区",
+                    description: "",
+                    serviceProviderId: 1,
+                    }                    
+                ]
+            }
+        ]
+
+## Service Provider Collection [/serviceproviders]
+
+### List All Service Providers [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1
+                name: "惠普云平台"
+                description: ""
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11",
+                regions:
+                [
+                    {
+                        id: 1,
+                        name: "北京1区",
+                        description: ""
+                    },
+                    {
+                        id: 2,
+                        name: "北京2区",
+                        description: ""
+                    }                    
+                ]
+            }
+        ]
+
+## Software Description Collection [/swdescriptions]
+
+### List All Software Descriptioins [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 1
+                licenseTerm: 1
+                name: ""
+                description: ""
+                longDescription: null
+                manufacture: ""
+                OS: ""
+                version: 5.2
+                virtualLicense: null
+                virtualizationPlatform: null
+                createDate:"2015-11-12 12:30:01",
+                modifyDate:"2015-11-12 12:40:11"
+            }
+        ]
+
+     
+## Product Families Collection [/serviceofferings/v1/productfamilies/<id>]  
+
+### Query Detil Product Family Info [GET]
+
++ Response 200 (application/json)
+
+        {
+            "product_family_id": "1",
+            "product_family_name": "云主机",
+            "product_family_description": "高效部署处理能力可弹性伸缩的计算服务，根据负载要求快速构建稳定、安全、按需订购、按用付费的服务器环境。",
+            "product_family_logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/top.png",
+            "start_price_monthly": "0.35",
+            "start_price_hourly": "0.35",
+            "long_description": [
+                {
+                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image1.png",
+                    "title": "弹性伸缩",
+                    "description": "用户按需自定义CPU、内存、存储空间和虚拟网络的配置，高效部署包括工作组、部门、及企业级别的云主机环境。"
+                },
+                {
+                    "logo": "/bazaar-ui/images/hpe/marketPlace/product/vm/image2.png",
+                    "title": "高效部署",
+                    "description": "用户使用配置方案向导快速构建主机环境，使用管理控制台快速上手资源管理，随时按需变更资源配置。"
+                }
+            ]
+        }
+        
+## Bill Type Collection [/serviceofferings/v1/billtypes]  
+
+### Query Product Bill Type Info [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "bill_type_id": "1",
+                "bill_type_name": "按量计费",
+                "description": ""
+            },
+            {
+                "bill_type_id": "2",
+                "bill_type_name": "包年包月",
+                "description": ""
+            }
+        ]
+
+## Availabily Zone Collection [/serviceofferings/v1/availabilyzones]  
+
+### Query Product Availabily Zone Info [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "北京1区",
+                "description": "",
+                "serviceProviderId": 1,
+                "locationId": 1,
+                "createDate": "2015-11-12 12:30:01",
+                "modifyDate": "2015-11-12 12:40:11",
+                "availablityZones": [
+                    {
+                        "availabiltyZoneId": "10",
+                        "availablityZoneName": "可用区1"
+                    },
+                    {
+                        "availabiltyZoneId": "11",
+                        "availablityZoneName": "可用区2"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "北京2区",
+                "description": "",
+                "serviceProviderId": 1,
+                "locationId": 1,
+                "createDate": "2015-11-12 12:30:01",
+                "modifyDate": "2015-11-12 12:40:11",
+                "availablityZones": [
+                    {
+                        "availabiltyZoneId": "20",
+                        "availablityZoneName": "可用区1"
+                    },
+                    {
+                        "availabiltyZoneId": "21",
+                        "availablityZoneName": "可用区2"
+                    }
+                ]
+            }
+        ]
+
 
 
 

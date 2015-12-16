@@ -961,8 +961,8 @@ object containing a product family and its attributes
         [
             {
                 id: 1,
-                name: "北京1区",
-                description: "",
+                name: "serviceofferings.region_1_name",
+                description: "serviceofferings.region_1_description",
                 serviceProviderId: 1,
                 locationId: 1,
                 createDate:"2015-11-12 12:30:01",
@@ -970,8 +970,8 @@ object containing a product family and its attributes
             },
             {
                 id: 2,
-                name: "北京2区",
-                description: "",
+                name: "serviceofferings.region_2_name",
+                description: "serviceofferings.region_2_description",
                 serviceProviderId: 1,
                 locationId: 1,
                 createDate:"2015-11-12 12:30:01",
@@ -979,7 +979,7 @@ object containing a product family and its attributes
             }
         ]
 
-## Location Collection [/locations]
+## Location Collection [/serviceofferings/v1/locations]
 
 ### List All Locations [GET]
 
@@ -988,29 +988,29 @@ object containing a product family and its attributes
         [
             {
                 id: 1,
-                name: "北京",
-                description: "",
+                name: "serviceofferings.location_1_name",
+                description: "serviceofferings.location_1_description",
                 createDate:"2015-11-12 12:30:01",
                 modifyDate:"2015-11-12 12:40:11",
                 regions:
                 [
                     {
                     id: 1,
-                    name: "北京1区",
-                    description: "",
+                    name: "serviceofferings.region_1_name",
+                    description: "serviceofferings.region_1_description",
                     serviceProviderId: 1,
                     },
                     {
                     id: 2,
-                    name: "北京2区",
-                    description: "",
+                    name: "serviceofferings.region_2_name",
+                    description: "serviceofferings.region_2_description",
                     serviceProviderId: 1,
                     }                    
                 ]
             }
         ]
 
-## Service Provider Collection [/serviceproviders]
+## Service Provider Collection [/serviceofferings/v1/serviceproviders]
 
 ### List All Service Providers [GET]
 

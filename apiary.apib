@@ -416,6 +416,35 @@ object containing a product family and its attributes
 
 ## Product Item Collection [/serviceofferings/v1/productItems]
 
+### Create Product Item  [POST]
+
++ Request (application/json)
+
+        {
+            "categoryGroupId":"101001",
+            "productItemKeyName":"CPU_64C",
+            "description":"",
+            "longDescription":"",
+            "attribute":"",
+            "capacity":"64",
+            "units":"C"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id":"1010010010",
+            "categoryGroupId":"101001",
+            "productItemKeyName":"CPU_64C",
+            "description":"",
+            "longDescription":"",
+            "capacity":"64",
+            "units":"C",
+            "attribute":"",
+            "createDate":"2015-11-12 12:30:01",
+            "modifyDate":"2015-11-12 12:30:01"
+        }
+
 ### Query All Product Item By Region [GET]
 
 + Response 200 (application/json)

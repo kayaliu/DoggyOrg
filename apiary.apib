@@ -1652,7 +1652,7 @@ object containing a product family and its attributes
         ]
 
 
-## Product Item Price Collection [/serviceofferings/v1/productitems/{itemid}/prices]
+## Product Item Price Collection [/serviceofferings/v1/productitems/{itemid}/prices/{id}]
 
 ### List All Product Item Prices [GET]
 
@@ -1705,7 +1705,41 @@ object containing a product family and its attributes
             }
         }
 
-## Product Item Price Collection [/serviceofferings/v1/productitems/{id}/relations]
+### Create Product Item Prices [PUT] 
+
++ Request (application/json)
+
+        {
+            "productItemId": 1010010001,
+            "regionId": 2,
+            "hourlyRecurringFee": 64,
+            "monthlyRecurringFee": 101,
+            "recurringFeeTax": 0,
+            "laborFee": 50,
+            "oneTimeFee": 200,
+            "usageRate": 5,
+            "onSaleFlag":1
+        }
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": {
+                "id": 47,
+                "hourlyRecurringFee": 64,
+                "monthlyRecurringFee": 101,
+                "recurringFeeTax": 0,
+                "laborFee": 50,
+                "oneTimeFee": 200,
+                "usageRate": 5,
+                "regionId": 2,
+                "productItemId": 1010010001
+            }
+        }
+
+## Product Item Relation Collection [/serviceofferings/v1/productitems/{id}/relations]
 
 ### Create Product Item Relation [POST]
         

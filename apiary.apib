@@ -1652,7 +1652,7 @@ object containing a product family and its attributes
         ]
 
 
-## Product Item Price Collection [/serviceofferings/v1/productitemprices]
+## Product Item Price Collection [/serviceofferings/v1/productitems/{itemid}/prices]
 
 ### List All Product Item Prices [GET]
 
@@ -1683,7 +1683,8 @@ object containing a product family and its attributes
             "recurringFeeTax": 0,
             "laborFee": 50,
             "oneTimeFee": 200,
-            "usageRate": 5
+            "usageRate": 5,
+            "onSaleFlag":1
         }
 
 + Response 200 (application/json)

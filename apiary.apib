@@ -445,6 +445,37 @@ object containing a product family and its attributes
             }
         }
 
+### update Product Item  [PUT]
+
++ Request (application/json)
+
+        {
+            "productItemKeyName": "CPU_64C",
+            "attributes": "",
+            "description":"64核",
+            "longDescription":"",
+            "capacity": 64,
+            "categoryGroupId": 101001,
+            "units": "C"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": {
+                "productItemId": 1010010006,
+                "productItemKeyName": "CPU_64C",
+                "description": null,
+                "attributes": "",
+                "capacity": 64,
+                "units": "C",
+                "categoryGroupId": 101001,
+                "productItemPrice": null
+            }
+        }
+
 ### Query All Product Item By Region [GET]
 
 + Response 200 (application/json)

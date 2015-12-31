@@ -1727,6 +1727,27 @@ object containing a product family and its attributes
             "data": 2
         }
 
+### Create Product Item Relation [DELETE]
+
++ Request (application/json)
+
+        {
+            "regionId": 2,
+            "productItemId": "1010010001",
+            "itemCollection": [
+                1020010001,
+                1020010002
+            ]
+        }
+        
++ Response 200 (application/json)
+        
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": 2
+        }
+
 ## Region Collection [/serviceofferings/v1/regions]
 
 ### List All Regions [GET]

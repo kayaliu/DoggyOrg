@@ -3251,7 +3251,7 @@ object containing a product family and its attributes
            }
         ]
 
-## Product Preset Collection [/serviceofferings/v1/productpresets/{id}]
+## Product Preset Operation [/serviceofferings/v1/productpresets/{id}]
 
 ### Query Product Preset Info [GET]
 
@@ -3301,7 +3301,7 @@ object containing a product family and its attributes
             }
         }
 
-### Query Product Preset Info [PUT]
+### Update Product Preset Info [PUT]
 
 + Request (application/json)
 
@@ -3354,7 +3354,7 @@ object containing a product family and its attributes
             
         }
 
-### Query Product Preset Info [DELETE]
+### Delete Product Preset Info [DELETE]
 
 + Response 200 (application/json)
 
@@ -3365,9 +3365,9 @@ object containing a product family and its attributes
             
         }
 
-## Product Preset Collection [/serviceofferings/v1/productpresets/{id}/status]
+## Product Preset status operation [/serviceofferings/v1/productpresets/{id}/status]
 
-### Query Product Preset Info [PUT]
+### Update Product Preset status [PUT]
 
 + Request (application/json)
 
@@ -3388,7 +3388,7 @@ object containing a product family and its attributes
         
 ## Product Preset Collection [/serviceofferings/v1/productpresets]
 
-### Query Product Preset Info [POST]
+### Add Product Preset Info [POST]
 
 + Request (application/json)
 
@@ -3441,8 +3441,6 @@ object containing a product family and its attributes
         }
 
 
-
-## Product Preset Collection [/serviceofferings/v1/productpresets?tagid=1]
 ### Query Product preset info by tag,if tagid is null query all [GET]
 
 + Response 200 (application/json)
@@ -3531,7 +3529,8 @@ object containing a product family and its attributes
                 }
             ]
         }
-## Product Preset Collection [/serviceofferings/v1/producttags/{tagid}]
+        
+## Product Tag Operation [/serviceofferings/v1/producttags/{tagid}]
 
 ### Query Product tag info  [GET]
 
@@ -3549,7 +3548,7 @@ object containing a product family and its attributes
             }
         }
 
-## Product Preset Collection [/serviceofferings/v1/producttags]
+## Product tag Collection [/serviceofferings/v1/producttags]
 
 ### Query Product tag info by type if type is null, query all tag [GET]
 

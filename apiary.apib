@@ -3300,58 +3300,6 @@ object containing a product family and its attributes
                 ]
             }
         }
-        
-### Query Product Preset Info [POST]
-
-+ Request (application/json)
-
-        {
-            "name": "vertica小型配置云主机",
-            "productFamilyId": 1,
-            "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
-            "regionId": 1,
-            "billType": "0",
-            usageRate:0.2,
-            hourlyRecurringFee:0.5,
-            monthlyRecurringFee:100,
-            "logo": "/xxxxxxx.jpg",
-            "tags": [
-                1,2
-            ],
-            "productItemIds":[
-                1010010001,
-                1020010001,
-                1030010001
-            ]
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "errCode": 0,
-            "errMsg": "9999",
-            "data": {
-                "id":"1",
-                "name": "vertica小型配置云主机",
-                "productFamilyId": 1,
-                "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
-                "regionId": 1,
-                "billType": "0",
-                usageRate:0.2,
-                hourlyRecurringFee:0.5,
-                monthlyRecurringFee:100,
-                "logo": "/xxxxxxx.jpg",
-                "tags": [
-                    1,2
-                ],
-                "productItemIds":[
-                    1010010001,
-                    1020010001,
-                    1030010001
-                ]
-            }
-            
-        }
 
 ### Query Product Preset Info [PUT]
 
@@ -3405,6 +3353,94 @@ object containing a product family and its attributes
             }
             
         }
+
+### Query Product Preset Info [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": null
+            
+        }
+
+## Product Preset Collection [/serviceofferings/v1/productpresets/{id}/status]
+
+### Query Product Preset Info [PUT]
+
++ Request (application/json)
+
+        {
+            "id":1,
+            "status":1
+        }
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": null
+            
+        }
+
+        
+## Product Preset Collection [/serviceofferings/v1/productpresets]
+
+### Query Product Preset Info [POST]
+
++ Request (application/json)
+
+        {
+            "name": "vertica小型配置云主机",
+            "productFamilyId": 1,
+            "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+            "regionId": 1,
+            "billType": "0",
+            usageRate:0.2,
+            hourlyRecurringFee:0.5,
+            monthlyRecurringFee:100,
+            "logo": "/xxxxxxx.jpg",
+            "tags": [
+                1,2
+            ],
+            "productItemIds":[
+                1010010001,
+                1020010001,
+                1030010001
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": {
+                "id":"1",
+                "name": "vertica小型配置云主机",
+                "productFamilyId": 1,
+                "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+                "regionId": 1,
+                "billType": "0",
+                usageRate:0.2,
+                hourlyRecurringFee:0.5,
+                monthlyRecurringFee:100,
+                "logo": "/xxxxxxx.jpg",
+                "tags": [
+                    1,2
+                ],
+                "productItemIds":[
+                    1010010001,
+                    1020010001,
+                    1030010001
+                ]
+            }
+            
+        }
+
+
 
 ## Product Preset Collection [/serviceofferings/v1/productpresets?tagid=1]
 ### Query Product preset info by tag,if tagid is null query all [GET]

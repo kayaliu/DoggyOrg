@@ -2045,10 +2045,193 @@ object containing a product family and its attributes
            }
         ]
 
-## Product Bundle Collection [/serviceofferings/v1/productbundles/{id}]
+## Product Preset Collection [/serviceofferings/v1/productpresets/{id}]
 
-### Query Product Bundle Info [GET]
+### Query Product Preset Info [GET]
 
 + Response 200 (application/json)
 
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": {
+                "id": 1,
+                "name": "vertica小型配置云主机",
+                "productFamilyId": 1,
+                "productFamilyName":"云主机",
+                "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+                "regionId": 1,
+                "billType": "0",
+                status: "1",
+                usageRate:0.2,
+                hourlyRecurringFee:0.5,
+                monthlyRecurringFee:100,
+                "logo": "/xxxxxxx.jpg",
+                "tags": [
+                    1,2
+                ],
+                "productItemIds":[
+                    1010010001,
+                    1020010001,
+                    1030010001
+                ],
+                "productPresetConfiguration":[
+                    {
+                    "categoryKeyName":"memery",
+                    "categoryName":"内存",
+                    "config":["1G"]
+                    },
+                    {
+                    "categoryKeyName":"CPU"
+                    "categoryName":"CPU",
+                    "config":["1核"]
+                    },
+                    {
+                    "categoryKeyName":"SOFTWARE"
+                    "categoryName":"软件",
+                    "config":["vertica5.0"]
+                    }
+                ]
+            }
+        }
 
+## Product Preset Collection [/serviceofferings/v1/productpresets?tagid=1]
+### Query Product preset info by tag,if tagid is null query all [GET]
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "vertica小型配置云主机",
+                    "productFamilyId": 1,
+                    "productFamilyName":"云主机",
+                    "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+                    "regionId": 1,
+                    "billType": "0",
+                    status: "1",
+                    usageRate:0.2,
+                    hourlyRecurringFee:0.5,
+                    monthlyRecurringFee:100,
+                    "logo": "/xxxxxxx.jpg",
+                    "tags": [
+                        1,2
+                    ],
+                    "productItemIds":[
+                        1010010001,
+                        1020010001,
+                        1030010001
+                    ],
+                    "productPresetConfiguration":[
+                        {
+                        "categoryKeyName":"memery",
+                        "categoryName":"内存",
+                        "config":["1G"]
+                        },
+                        {
+                        "categoryKeyName":"CPU"
+                        "categoryName":"CPU",
+                        "config":["1核"]
+                        },
+                        {
+                        "categoryKeyName":"SOFTWARE"
+                        "categoryName":"软件",
+                        "config":["vertica5.0"]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "vertica小型配置云主机",
+                    "productFamilyId": 1,
+                    "productFamilyName":"云主机",
+                    "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+                    "regionId": 1,
+                    "billType": "0",
+                    status: "1",
+                    usageRate:0.2,
+                    hourlyRecurringFee:0.5,
+                    monthlyRecurringFee:100,
+                    "logo": "/xxxxxxx.jpg",
+                    "tags": [
+                        1,2
+                    ],
+                    "productItemIds":[
+                        1010010001,
+                        1020010001,
+                        1030010001
+                    ],
+                    "productPresetConfiguration":[
+                        {
+                        "categoryKeyName":"memery",
+                        "categoryName":"内存",
+                        "config":["1G"]
+                        },
+                        {
+                        "categoryKeyName":"CPU"
+                        "categoryName":"CPU",
+                        "config":["1核"]
+                        },
+                        {
+                        "categoryKeyName":"SOFTWARE"
+                        "categoryName":"软件",
+                        "config":["vertica5.0"]
+                        }
+                    ]
+                }
+            ]
+        }
+## Product Preset Collection [/serviceofferings/v1/producttags/{tagid}]
+
+### Query Product tag info  [GET]
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": {
+                "id": 1,
+                "name": "大数据",
+                "description": "Vertica大数据实时分析平台，通过纯列存储、智能压缩排序、高级分析函数，为企业提供极速性能的超打规模数据分析服务。",
+                "tagType": 1,
+                valid: "1"
+            }
+        }
+
+## Product Preset Collection [/serviceofferings/v1/producttags]
+
+### Query Product tag info by type if type is null, query all tag [GET]
+
++ Response 200 (application/json)
+
+        {
+            "errCode": 0,
+            "errMsg": "9999",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "大数据",
+                    "description": "",
+                    "tagType": 1,
+                    valid: "1"
+                },
+                {
+                    "id": 2,
+                    "name": "协同办公",
+                    "description": "",
+                    "tagType": 1,
+                    valid: "1"
+                },
+                {
+                    "id": 3,
+                    "name": "游戏",
+                    "description": "",
+                    "tagType": 1,
+                    valid: "1"
+                }
+            ]
+        }
